@@ -1,0 +1,22 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        candidate = None
+        votes = 0
+
+        for num in nums:
+
+            if candidate is None:
+                candidate = num
+                votes = 1
+            
+            elif candidate == num:
+                votes += 1
+            
+            else:
+                votes -= 1
+            
+            if votes == 0:
+                candidate = None
+        
+        return candidate
+
